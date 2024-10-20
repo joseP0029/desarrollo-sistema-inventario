@@ -12,8 +12,8 @@ public class Almacen {
         this.productos = new ArrayList<Producto>();
     }
 
-    public Almacen(ArrayList<Producto> productos, String nombreArchivo) {
-        this.productos = productos;
+    public Almacen(String nombreArchivo) {
+        this.productos = new ArrayList<Producto>();
         this.nombreArchivo = nombreArchivo;
     }
 
@@ -31,6 +31,14 @@ public class Almacen {
 
     public void setNombreArchivo(String nombreArchivo) {
         this.nombreArchivo = nombreArchivo;
+    }
+    
+    public int cuenta() {
+        return productos.size();
+    }
+    
+    public Producto productoEn(int indice) {
+        return productos.get(indice);
     }
     
     public int buscarProductoPorId(int id) {

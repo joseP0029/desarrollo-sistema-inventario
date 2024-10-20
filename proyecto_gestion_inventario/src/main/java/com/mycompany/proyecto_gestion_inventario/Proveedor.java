@@ -1,13 +1,12 @@
 package com.mycompany.proyecto_gestion_inventario;
 
 public class Proveedor {
-    private String nombre, ciudad;
-    private int numeroTelefono;
+    private String nombre, ciudad, numeroTelefono;
 
     public Proveedor() {
     }
     
-    public Proveedor(String nombre, String ciudad, int numeroTelefono) {
+    public Proveedor(String nombre, String ciudad, String numeroTelefono) {
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.numeroTelefono = numeroTelefono;
@@ -29,11 +28,11 @@ public class Proveedor {
         this.ciudad = ciudad;
     }
 
-    public int getNumeroTelefono() {
+    public String getNumeroTelefono() {
         return numeroTelefono;
     }
 
-    public void setNumeroTelefono(int numeroTelefono) {
+    public void setNumeroTelefono(String numeroTelefono) {
         this.numeroTelefono = numeroTelefono;
     }
     
