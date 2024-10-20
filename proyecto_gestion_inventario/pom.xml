@@ -9,6 +9,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
-        <exec.mainClass>com.mycompany.proyecto_gestion_inventario.Proyecto_gestion_inventario</exec.mainClass>
+        <exec.mainClass>com.mycompany.proyecto_gestion_inventario.PruebaInventario</exec.mainClass>
     </properties>
 </project>

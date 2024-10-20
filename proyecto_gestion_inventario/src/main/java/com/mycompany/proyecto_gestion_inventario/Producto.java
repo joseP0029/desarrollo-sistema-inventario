@@ -1,6 +1,8 @@
 package com.mycompany.proyecto_gestion_inventario;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable{
     private int id, cantidad;
     private String nombre, categoria, nombreFabricante, detallesEnvio;
     private float precio;
