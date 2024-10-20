@@ -24,6 +24,14 @@ public class Almacen {
     public void setProductos(ArrayList<Producto>productos) {
         this.productos = productos;
     }
+
+    public String getNombreArchivo() {
+        return nombreArchivo;
+    }
+
+    public void setNombreArchivo(String nombreArchivo) {
+        this.nombreArchivo = nombreArchivo;
+    }
     
     public int buscarProductoPorId(int id) {
         for (Producto producto : productos) {
