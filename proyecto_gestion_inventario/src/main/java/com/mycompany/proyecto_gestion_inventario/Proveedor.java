@@ -1,6 +1,8 @@
 package com.mycompany.proyecto_gestion_inventario;
 
-public class Proveedor {
+import java.io.Serializable;
+
+public class Proveedor implements Serializable{
     private String nombre, ciudad, numeroTelefono;
 
     public Proveedor() {
