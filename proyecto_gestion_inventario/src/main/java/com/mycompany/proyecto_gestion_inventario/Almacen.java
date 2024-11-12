@@ -101,7 +101,10 @@ public class Almacen {
             Obout.writeObject(producto); //guarda en el archivo
             }
             Obout.close();
-        }catch(Exception Ex){ b=false;}
+        }catch(Exception Ex){ 
+            b=false;
+            System.out.println("Error" + Ex.getMessage());
+        }
         return b;
 }
     
