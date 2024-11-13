@@ -4,6 +4,7 @@ public class PruebaInventario {
 
     public static void main(String[] args) {
         
+        /*
         Almacen almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
         almacenPrueba.leer();
         if (almacenPrueba.cuenta() == 0){
@@ -37,7 +38,9 @@ public class PruebaInventario {
                }
             System.out.println(pro);
         }
-
+        */
+        Login log = new Login();
+        log.setVisible(true);
     }//fin metodo main
       
 }//fin de la clase Practica
