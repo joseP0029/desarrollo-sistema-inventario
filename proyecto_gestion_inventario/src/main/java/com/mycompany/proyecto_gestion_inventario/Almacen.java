@@ -33,7 +33,7 @@ public class Almacen {
         this.nombreArchivo = nombreArchivo;
     }
     
-    public int cuenta() {
+    public int cantidadProductos() {
         return productos.size();
     }
     
@@ -83,14 +83,13 @@ public class Almacen {
     
     public void leer(){
         Producto producto;
-        //this.lista.removeAllElements(); //limpia la lista
         try {
             ObjectInputStream Obin;
             Obin=new ObjectInputStream(new FileInputStream(nombreArchivo));
             while((producto=(Producto)Obin.readObject())!=null){
             agregarProducto(producto);
             }Obin.close();
-        }catch (Exception ex){}
+        }catch (Exception ex){ System.out.println("ERROR AL LEER: " +ex.getMessage());}
 }
     public boolean guardar(){ 
         Boolean b=true;
@@ -101,9 +100,9 @@ public class Almacen {
             Obout.writeObject(producto); //guarda en el archivo
             }
             Obout.close();
-        }catch(Exception Ex){ 
+        }catch(Exception ex){ 
             b=false;
-            System.out.println("Error" + Ex.getMessage());
+            System.out.println("ERROR AL GUARDAR: " + ex.getMessage());
         }
         return b;
 }
