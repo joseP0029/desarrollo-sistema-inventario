@@ -91,12 +91,10 @@ import javax.swing.table.TableModel;
 
     @Override
     public void addTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void removeTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
      
 }

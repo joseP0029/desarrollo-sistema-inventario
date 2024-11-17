@@ -17,6 +17,10 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        Almacen almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
+        almacenPrueba.leer();
+        TMProducto modelo = new TMProducto(almacenPrueba.getProductos());
+        tblGestion.setModel(modelo);
     }
 
     /**
@@ -32,6 +36,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cmbSeleccionGestion = new javax.swing.JComboBox<>();
@@ -49,23 +54,34 @@ public class Principal extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Bienvenido");
 
-        jLabel2.setText("Programa de gestión de inventario para el supermercado xxxxxx");
+        jLabel2.setText("Este es una herramienta para la gestión de inventario del supermercado ABC.");
+
+        btnSalir.setText("Salir del Programa");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(251, 251, 251))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(153, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalir)
+                .addGap(219, 219, 219))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,7 +90,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addComponent(btnSalir)
+                .addGap(54, 54, 54))
         );
 
         jTabbedPane1.addTab("Inicio", jPanel2);
@@ -204,6 +222,10 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,6 +262,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cmbSeleccionGestion;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
