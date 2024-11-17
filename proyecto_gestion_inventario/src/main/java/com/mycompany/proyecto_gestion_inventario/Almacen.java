@@ -95,9 +95,10 @@ public class Almacen {
         Boolean b=true;
         try{
             ObjectOutputStream Obout;
-            Obout = new ObjectOutputStream(new FileOutputStream(nombreArchivo));
+            Obout = new ObjectOutputStream(new FileOutputStream(nombreArchivo, false));
+            
             for (Producto producto: productos){
-            Obout.writeObject(producto); //guarda en el archivo
+            Obout.writeObject(producto);
             }
             Obout.close();
         }catch(Exception ex){ 
