@@ -37,7 +37,7 @@ public class Almacen {
         return productos.size();
     }
     
-    public Producto productoEn(int indice) {
+    public Producto productoEnPosicion(int indice) {
         return productos.get(indice);
     }
     
@@ -89,7 +89,6 @@ public class Almacen {
             }
         }
         catch (EOFException e) {
-            System.out.println("Todo bien");
         }
         catch (IOException | ClassNotFoundException ex) {}
     }

@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_gestion_inventario;
 
+import java.awt.Component;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,7 +12,12 @@ import javax.swing.JOptionPane;
  * @author josep
  */
 public class Login extends javax.swing.JFrame {
+    
 
+    @Override
+    public void setLocationRelativeTo(Component c) {
+        super.setLocationRelativeTo(c); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
     /**
      * Creates new form FrameLogin
      */
@@ -144,6 +150,7 @@ public class Login extends javax.swing.JFrame {
         if (usuario.equals("admin") && pswd.equals("admin")) {
             this.dispose();
             Principal prin = new Principal();
+            prin.setLocationRelativeTo(null);
             prin.setVisible(true);
         }
         else {

@@ -49,7 +49,6 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setLocationByPlatform(true);
         setName("frmPrincipal"); // NOI18N
         setUndecorated(true);
         setResizable(false);
@@ -215,7 +214,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbSeleccionGestionActionPerformed
 
     private void btnAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirActionPerformed
-        // TODO add your handling code here:
+        new UIAnadirProducto();
+        
     }//GEN-LAST:event_btnAnadirActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
