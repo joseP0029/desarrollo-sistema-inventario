@@ -9,11 +9,11 @@ public class Almacen {
     private String nombreArchivo;
     
     public Almacen() {
-        this.productos = new ArrayList<Producto>();
+        this.productos = new ArrayList<>();
     }
 
     public Almacen(String nombreArchivo) {
-        this.productos = new ArrayList<Producto>();
+        this.productos = new ArrayList<>();
         this.nombreArchivo = nombreArchivo;
     }
 
@@ -82,15 +82,19 @@ public class Almacen {
     }
     
     public void leer(){
-        Producto producto;
-        try {
-            ObjectInputStream Obin;
-            Obin=new ObjectInputStream(new FileInputStream(nombreArchivo));
+        try (ObjectInputStream Obin = new ObjectInputStream(new FileInputStream(nombreArchivo));) {
+            Producto producto;
             while((producto=(Producto)Obin.readObject())!=null){
-            agregarProducto(producto);
-            }Obin.close();
-        }catch (Exception ex){ System.out.println("ERROR AL LEER: " +ex.getMessage());}
-}
+                agregarProducto(producto);
+            }
+        }
+        catch (EOFException e) {
+            System.out.println("Todo bien");
+        }
+        catch (IOException | ClassNotFoundException ex) {}
+    }
+    
+
     public boolean guardar(){ 
         Boolean b=true;
         try{
@@ -98,14 +102,14 @@ public class Almacen {
             Obout = new ObjectOutputStream(new FileOutputStream(nombreArchivo, false));
             
             for (Producto producto: productos){
-            Obout.writeObject(producto);
+                Obout.writeObject(producto);
             }
             Obout.close();
-        }catch(Exception ex){ 
+        }catch(IOException ex){ 
             b=false;
             System.out.println("ERROR AL GUARDAR: " + ex.getMessage());
         }
         return b;
-}
+    }
     
 }
