@@ -29,7 +29,7 @@ import javax.swing.table.TableModel;
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        Class[] clasesCol = {int.class, String.class , int.class , String.class, String.class, float.class, String.class, String.class, boolean.class};
+        Class[] clasesCol = {Integer.class, String.class , int.class , String.class, String.class, float.class, String.class, String.class, boolean.class};
         return clasesCol[columnIndex];
     }
 
@@ -58,7 +58,7 @@ import javax.swing.table.TableModel;
         Producto p = productos.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                p.setId((String)aValue);
+                p.setId((Integer)aValue);
                 break;
             case 1:
                 p.setNombre((String)aValue);

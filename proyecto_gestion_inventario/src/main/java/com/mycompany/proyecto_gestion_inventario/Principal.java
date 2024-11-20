@@ -12,16 +12,27 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
     private Almacen almacenPrueba;
+    private Agenda agendaPrueba;
+    private TMProducto modeloProductos;
+    private TMProveedor modeloProveedores;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
+        this.almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
+        this.agendaPrueba = new Agenda("C:\\datos\\proveedores.dat");
+        
+        agendaPrueba.leer();
         almacenPrueba.leer();
-        TMProducto modeloProductos = new TMProducto(almacenPrueba.getProductos());
+        
+        this.modeloProveedores = new TMProveedor(agendaPrueba.getProveedores());
+        this.modeloProductos = new TMProducto(almacenPrueba.getProductos());
+        
         tblGestion.setModel(modeloProductos);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -265,7 +276,12 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbSeleccionGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSeleccionGestionActionPerformed
-        // TODO add your handling code here:
+    if(cmbSeleccionGestion.getSelectedIndex() == 0) {
+        tblGestion.setModel(modeloProductos);
+        
+    } else {
+        tblGestion.setModel(modeloProveedores);
+    }
     }//GEN-LAST:event_cmbSeleccionGestionActionPerformed
 
     private void btnAnadirGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirGestionActionPerformed

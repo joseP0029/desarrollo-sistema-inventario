@@ -263,7 +263,7 @@ public class UIAnadirProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCantidadActionPerformed
 
     private void btnAnadirProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirProductoActionPerformed
-        Producto p = new Producto(txtId.getText(), Integer.parseInt(txtCantidad.getText()), txtNombre.getText(), txtCategoria.getText(), txtFabricante.getText(), txtDetallesEnvio.getText(), Float.parseFloat(txtPrecio.getText()), new Proveedor());
+        Producto p = new Producto(Integer.parseInt(txtId.getText()), Integer.parseInt(txtCantidad.getText()), txtNombre.getText(), txtCategoria.getText(), txtFabricante.getText(), txtDetallesEnvio.getText(), Float.parseFloat(txtPrecio.getText()), new Proveedor());
         almacen.agregarProducto(p);
     }//GEN-LAST:event_btnAnadirProductoActionPerformed
 

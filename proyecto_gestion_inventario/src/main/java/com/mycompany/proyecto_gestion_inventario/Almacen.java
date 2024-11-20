@@ -43,7 +43,7 @@ public class Almacen {
     
     public int buscarProductoPorId(int id) {
         for (Producto producto : productos) {
-            if (producto.getId().equals(id)) {
+            if (producto.getId() == id) {
                 return productos.indexOf(producto);
             }
         }

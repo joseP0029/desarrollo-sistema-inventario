@@ -23,7 +23,7 @@ public class TMProveedor implements TableModel{
 
     @Override
     public String getColumnName(int columnIndex) {
-        String[] nombresCol = {"Id", "Nombre", "Ciudad", "Teléfono"};
+        String[] nombresCol = {"ID", "Nombre", "Ciudad", "Teléfono"};
         return nombresCol[columnIndex];
     }
 
@@ -65,12 +65,10 @@ public class TMProveedor implements TableModel{
 
     @Override
     public void addTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void removeTableModelListener(TableModelListener l) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

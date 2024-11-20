@@ -6,7 +6,7 @@ public class ProductoPerecible extends Producto{
     public ProductoPerecible() {
     }
 
-    public ProductoPerecible(boolean refrigerado, String id, int cantidad, String nombre, String categoria, String nombreFabricante, String detallesEnvio, float precio, Proveedor proveedor) {
+    public ProductoPerecible(boolean refrigerado, int id, int cantidad, String nombre, String categoria, String nombreFabricante, String detallesEnvio, float precio, Proveedor proveedor) {
         super(id, cantidad, nombre, categoria, nombreFabricante, detallesEnvio, precio, proveedor);
         this.refrigerado = refrigerado;
     }
