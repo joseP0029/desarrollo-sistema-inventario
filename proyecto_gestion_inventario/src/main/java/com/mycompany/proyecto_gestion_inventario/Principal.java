@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  * @author josep
  */
 public class Principal extends javax.swing.JFrame {
+    private boolean pro = true;
     private Almacen almacenPrueba;
     private Agenda agendaPrueba;
     private TMProducto modeloProductos;
@@ -20,14 +21,15 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        this.almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
-        this.agendaPrueba = new Agenda("C:\\datos\\proveedores.dat");
+        almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
+        agendaPrueba = new Agenda("C:\\datos\\proveedores.dat");
+        
         
         agendaPrueba.leer();
         almacenPrueba.leer();
         
-        this.modeloProveedores = new TMProveedor(agendaPrueba.getProveedores());
-        this.modeloProductos = new TMProducto(almacenPrueba.getProductos());
+        modeloProveedores = new TMProveedor(agendaPrueba.getProveedores());
+        modeloProductos = new TMProducto(almacenPrueba.getProductos());
         
         tblGestion.setModel(modeloProductos);
     }
@@ -276,18 +278,26 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbSeleccionGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSeleccionGestionActionPerformed
-    if(cmbSeleccionGestion.getSelectedIndex() == 0) {
         tblGestion.setModel(modeloProductos);
-        
-    } else {
-        tblGestion.setModel(modeloProveedores);
-    }
+        if(cmbSeleccionGestion.getSelectedIndex() == 0) {
+            pro = true;
+            tblGestion.setModel(modeloProductos);
+        } else {
+            tblGestion.setModel(modeloProveedores);
+            pro = false;
+        }
     }//GEN-LAST:event_cmbSeleccionGestionActionPerformed
 
     private void btnAnadirGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirGestionActionPerformed
-        UIAnadirProducto ventanaProductos = new UIAnadirProducto(almacenPrueba);
+        if(pro) {
+        UIAnadirProducto ventanaProductos = new UIAnadirProducto(almacenPrueba, agendaPrueba);
         ventanaProductos.setLocationRelativeTo(null);
-        ventanaProductos.setVisible(true);       
+        ventanaProductos.setVisible(true);
+        } else {
+            UIAnadirProveedor ventanaProveedores = new UIAnadirProveedor(agendaPrueba);
+            ventanaProveedores.setLocationRelativeTo(null);
+            ventanaProveedores.setVisible(true);
+        }
     }//GEN-LAST:event_btnAnadirGestionActionPerformed
 
     private void btnEliminarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGestionActionPerformed
@@ -297,6 +307,8 @@ public class Principal extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         int opcion = JOptionPane.showInternalConfirmDialog(null, "Desea Salir de la aplicación?\nLos cambios en el inventario serán guardados.", "Salir", 0);
         if(opcion == JOptionPane.YES_OPTION) {
+            agendaPrueba.guardar();
+            almacenPrueba.guardar();
             System.exit(0);
         }
     }//GEN-LAST:event_btnSalirActionPerformed

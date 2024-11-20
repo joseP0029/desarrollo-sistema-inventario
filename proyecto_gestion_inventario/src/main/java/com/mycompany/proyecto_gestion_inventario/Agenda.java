@@ -1,11 +1,6 @@
 package com.mycompany.proyecto_gestion_inventario;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Agenda {
@@ -47,7 +42,7 @@ public class Agenda {
     
     public int buscarProveedorPorId(int id) {
         for (Proveedor proveedor : proveedores) {
-            if (proveedor.getId().equals(id)) {
+            if (proveedor.getId() == id) {
                 return proveedores.indexOf(proveedor);
             }
         }

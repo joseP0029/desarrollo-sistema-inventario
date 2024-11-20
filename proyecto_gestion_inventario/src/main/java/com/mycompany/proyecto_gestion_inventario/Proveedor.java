@@ -3,23 +3,24 @@ package com.mycompany.proyecto_gestion_inventario;
 import java.io.Serializable;
 
 public class Proveedor implements Serializable{
-    private String id, nombre, ciudad, telefono;
+    private int id;
+    private String nombre, ciudad, telefono;
 
     public Proveedor() {
     }
     
-    public Proveedor(String id, String nombre, String ciudad, String telefono) {
+    public Proveedor(int id, String nombre, String ciudad, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.telefono = telefono;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     

@@ -29,7 +29,11 @@ public class TMProveedor implements TableModel{
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        return String.class;
+        if (columnIndex != 0){
+            return String.class;
+        } else {
+            return int.class;
+        }
     }
 
     @Override
@@ -49,7 +53,7 @@ public class TMProveedor implements TableModel{
         Proveedor p = proveedores.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                p.setId((String)aValue);
+                p.setId((Integer)aValue);
                 break;
             case 1:
                 p.setNombre((String)aValue);

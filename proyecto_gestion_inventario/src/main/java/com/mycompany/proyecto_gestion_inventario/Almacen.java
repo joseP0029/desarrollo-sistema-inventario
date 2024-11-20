@@ -3,7 +3,6 @@ package com.mycompany.proyecto_gestion_inventario;
 import java.util.ArrayList;
 import java.io.*;
 
-
 public class Almacen {
     private ArrayList<Producto> productos;
     private String nombreArchivo;
