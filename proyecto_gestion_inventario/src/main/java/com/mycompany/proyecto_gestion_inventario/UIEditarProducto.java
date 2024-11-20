@@ -8,26 +8,36 @@ package com.mycompany.proyecto_gestion_inventario;
  *
  * @author josep
  */
-public class UIAnadirProducto extends javax.swing.JFrame {
+public class UIEditarProducto extends javax.swing.JFrame {
     private Almacen almacen;
     private Agenda agenda;
     /**
      * Creates new form UIAnadirProducto
      */
     
-    public UIAnadirProducto() {
+    public UIEditarProducto() {
     }
 
-    public UIAnadirProducto(Almacen almacen, Agenda agenda) {
+    public UIEditarProducto(Almacen almacen, Agenda agenda, String id, String nombre, String cantidad, String categoria, String fabricante, String precio, int proveedorIndice, String detalles, boolean refrigerado) {
         initComponents();
         this.almacen = almacen;
         this.agenda = agenda;
+        txtId.setText(id);
+        txtNombre.setText(nombre);
+        txtCantidad.setText(cantidad);
+        txtCategoria.setText(categoria);
+        txtFabricante.setText(fabricante);
+        txtPrecio.setText(precio);
+        cmbProveedor.setSelectedIndex(proveedorIndice);
+        txtDetallesEnvio.setText(detalles);
+        ckRefrigerado.setSelected(refrigerado);
         cmbProveedor.setSelectedIndex(-1);
         cmbProveedor.removeAllItems();
         for (Proveedor proveedor : agenda.getProveedores()) {
             String opcion = proveedor.getNombre();
             cmbProveedor.addItem(opcion);
         }
+        
     }
 
     /**
@@ -330,20 +340,21 @@ public class UIAnadirProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UIAnadirProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UIAnadirProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UIAnadirProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UIAnadirProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UIEditarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UIAnadirProducto().setVisible(true);
+                new UIEditarProducto().setVisible(true);
             }
         });
     }

@@ -162,6 +162,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         btnEditarGestion.setText("Editar");
+        btnEditarGestion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarGestionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -320,6 +325,23 @@ public class Principal extends javax.swing.JFrame {
     private void btnEliminarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarUsuariosActionPerformed
+
+    private void btnEditarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarGestionActionPerformed
+        int filaSeleccionada = tblGestion.getSelectedRow();
+        String id = (String) tblGestion.getValueAt(filaSeleccionada, 0);
+        String nombre = (String) tblGestion.getValueAt(filaSeleccionada, 1);
+        String cantidad = (String) tblGestion.getValueAt(filaSeleccionada, 2);
+        String categoria = (String) tblGestion.getValueAt(filaSeleccionada, 3);
+        String fabricante = (String) tblGestion.getValueAt(filaSeleccionada, 4);
+        String precio = (String) tblGestion.getValueAt(filaSeleccionada, 5);
+        int proveedor = (Integer) tblGestion.getValueAt(filaSeleccionada, 6);
+        String detalles = (String) tblGestion.getValueAt(filaSeleccionada, 7);
+        boolean refrigerado = (Boolean) tblGestion.getValueAt(filaSeleccionada, 8);
+
+        UIEditarProducto ventanaEditarProducto = new UIEditarProducto(almacenPrueba, agendaPrueba, id, nombre, cantidad, categoria, fabricante, precio, proveedor, detalles, refrigerado);
+        ventanaEditarProducto.setLocationRelativeTo(null);
+        ventanaEditarProducto.setVisible(true);
+    }//GEN-LAST:event_btnEditarGestionActionPerformed
 
     /**
      * @param args the command line arguments
