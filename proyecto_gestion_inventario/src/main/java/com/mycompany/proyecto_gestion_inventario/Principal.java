@@ -11,16 +11,16 @@ import javax.swing.JOptionPane;
  * @author josep
  */
 public class Principal extends javax.swing.JFrame {
-
+    private Almacen almacenPrueba;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
-        Almacen almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
+        almacenPrueba = new Almacen("C:\\datos\\objetos.dat");
         almacenPrueba.leer();
-        TMProducto modelo = new TMProducto(almacenPrueba.getProductos());
-        tblGestion.setModel(modelo);
+        TMProducto modeloProductos = new TMProducto(almacenPrueba.getProductos());
+        tblGestion.setModel(modeloProductos);
     }
 
     /**
@@ -32,6 +32,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnAnadir1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,10 +43,17 @@ public class Principal extends javax.swing.JFrame {
         cmbSeleccionGestion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblGestion = new javax.swing.JTable();
-        btnAnadir = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnAnadirGestion = new javax.swing.JButton();
+        btnEliminarGestion = new javax.swing.JButton();
+        btnEditarGestion = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnAnadirUsuarios = new javax.swing.JButton();
+        btnEditarUsuarios = new javax.swing.JButton();
+        btnEliminarUsuarios = new javax.swing.JButton();
+
+        btnAnadir1.setText("Añadir");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -89,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(btnSalir)
                 .addGap(54, 54, 54))
         );
@@ -126,21 +134,21 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblGestion);
 
-        btnAnadir.setText("Añadir");
-        btnAnadir.addActionListener(new java.awt.event.ActionListener() {
+        btnAnadirGestion.setText("Añadir");
+        btnAnadirGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnadirActionPerformed(evt);
+                btnAnadirGestionActionPerformed(evt);
             }
         });
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarGestion.setText("Eliminar");
+        btnEliminarGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                btnEliminarGestionActionPerformed(evt);
             }
         });
 
-        btnEditar.setText("Editar");
+        btnEditarGestion.setText("Editar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -156,11 +164,11 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(cmbSeleccionGestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnAnadir)
+                        .addComponent(btnAnadirGestion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditar)
+                        .addComponent(btnEditarGestion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar)))
+                        .addComponent(btnEliminarGestion)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -174,23 +182,70 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnadir)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnEditar))
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addComponent(btnAnadirGestion)
+                    .addComponent(btnEliminarGestion)
+                    .addComponent(btnEditarGestion))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestión", jPanel3);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        btnAnadirUsuarios.setText("Añadir");
+        btnAnadirUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnadirUsuariosActionPerformed(evt);
+            }
+        });
+
+        btnEditarUsuarios.setText("Editar");
+
+        btnEliminarUsuarios.setText("Eliminar");
+        btnEliminarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarUsuariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 567, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnAnadirUsuarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarUsuarios)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarUsuarios)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnadirUsuarios)
+                    .addComponent(btnEditarUsuarios)
+                    .addComponent(btnEliminarUsuarios))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Usuarios", jPanel4);
@@ -213,14 +268,15 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSeleccionGestionActionPerformed
 
-    private void btnAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirActionPerformed
-        new UIAnadirProducto();
-        
-    }//GEN-LAST:event_btnAnadirActionPerformed
+    private void btnAnadirGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirGestionActionPerformed
+        UIAnadirProducto ventanaProductos = new UIAnadirProducto(almacenPrueba);
+        ventanaProductos.setLocationRelativeTo(null);
+        ventanaProductos.setVisible(true);       
+    }//GEN-LAST:event_btnAnadirGestionActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void btnEliminarGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarGestionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_btnEliminarGestionActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         int opcion = JOptionPane.showInternalConfirmDialog(null, "Desea Salir de la aplicación?\nLos cambios en el inventario serán guardados.", "Salir", 0);
@@ -228,6 +284,14 @@ public class Principal extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnAnadirUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnadirUsuariosActionPerformed
+
+    private void btnEliminarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,9 +329,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnadir;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnAnadir1;
+    private javax.swing.JButton btnAnadirGestion;
+    private javax.swing.JButton btnAnadirUsuarios;
+    private javax.swing.JButton btnEditarGestion;
+    private javax.swing.JButton btnEditarUsuarios;
+    private javax.swing.JButton btnEliminarGestion;
+    private javax.swing.JButton btnEliminarUsuarios;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cmbSeleccionGestion;
     private javax.swing.JLabel jLabel1;
@@ -277,7 +345,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable tblGestion;
     // End of variables declaration//GEN-END:variables
 }

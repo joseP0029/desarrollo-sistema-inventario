@@ -11,7 +11,6 @@ import javax.swing.table.TableModel;
         this.productos = productos;
     }
      
-     
     @Override
     public int getRowCount() {
         return productos.size();
@@ -59,7 +58,7 @@ import javax.swing.table.TableModel;
         Producto p = productos.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                p.setId((Integer)aValue);
+                p.setId((String)aValue);
                 break;
             case 1:
                 p.setNombre((String)aValue);

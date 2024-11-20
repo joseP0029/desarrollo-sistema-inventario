@@ -3,15 +3,15 @@ package com.mycompany.proyecto_gestion_inventario;
 import java.io.Serializable;
 
 public class Producto implements Serializable{
-    private int id, cantidad;
-    private String nombre, categoria, nombreFabricante, detallesEnvio;
+    private int  cantidad;
+    private String id, nombre, categoria, nombreFabricante, detallesEnvio;
     private float precio;
     private Proveedor proveedor;
 
     public Producto() {
     }
 
-    public Producto(int id, int cantidad, String nombre, String categoria, String nombreFabricante, String detallesEnvio, float precio, Proveedor proveedor) {
+    public Producto(String id, int cantidad, String nombre, String categoria, String nombreFabricante, String detallesEnvio, float precio, Proveedor proveedor) {
         this.id = id;
         this.cantidad = cantidad;
         this.nombre = nombre;
@@ -22,11 +22,11 @@ public class Producto implements Serializable{
         this.proveedor = proveedor;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
